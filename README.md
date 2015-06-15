@@ -29,9 +29,11 @@ client.status # => 200
 ```
 Let's analyze some documents!
 ```ruby
-doc1 = Vasily::Document.new("Председатель совета директоров ОАО «МДМ Банк» Олег Вьюгин — о том, чему приведет обмен санкциями между Россией и Западом в следующем году. Беседовала Светлана Сухова.", tag: "doc1")
-doc2 = Vasily::Document.new("Не перепутает Генри Форда и компанию «Форд» в документах", tag: "doc2")
-doc3 = Vasily::Document.new("Штаб-квартира компании Форд Моторс располагается в городе Дирборн.", tag: "doc3")
+doc1 = Vasily::Document.new("Председатель совета директоров ОАО «МДМ Банк» Олег Вьюгин — о том, чему приведет обмен санкциями между Россией и Западом в следующем году. Беседовала Светлана Сухова.", "doc1")
+doc2 = Vasily::Document.new("Не перепутает Генри Форда и компанию «Форд» в документах", "doc2")
+doc3 = Vasily::Document.new("Штаб-квартира компании Форд Моторс располагается в городе Дирборн.", "doc3")
+batch_id, status = client.queue([doc1, doc2, doc3]) # => ["abcdefgh-1111-2222-3333-abcdefabcdef", "IN_PROGRESS"]
+status = client.request(batch_id) # => "FINISHED"
 ```
 
 ## Development
