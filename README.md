@@ -1,6 +1,8 @@
 ![Vasily](https://cloud.githubusercontent.com/assets/429423/8151229/e22ae34a-12d5-11e5-8fe1-337c8209fe24.png)
 # Vasily
 
+[![Join the chat at https://gitter.im/fedorn/vasily](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/fedorn/vasily?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 Vasily is a gem for using [textocat.com](http://textocat.com/) [API](http://docs.textocat.com/) from Ruby.
 
 ## Installation
