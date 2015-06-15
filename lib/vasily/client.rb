@@ -1,4 +1,5 @@
 require 'httparty'
+require 'vasily/document'
 
 module Vasily
   class Client

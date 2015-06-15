@@ -27,6 +27,12 @@ Then you can use it to initialize client.
 client = Vasily::Client.new('auth_token')
 client.status # => 200
 ```
+Let's analyze some documents!
+```ruby
+doc1 = Vasily::Document.new("Председатель совета директоров ОАО «МДМ Банк» Олег Вьюгин — о том, чему приведет обмен санкциями между Россией и Западом в следующем году. Беседовала Светлана Сухова.", tag: "doc1")
+doc2 = Vasily::Document.new("Не перепутает Генри Форда и компанию «Форд» в документах", tag: "doc2")
+doc3 = Vasily::Document.new("Штаб-квартира компании Форд Моторс располагается в городе Дирборн.", tag: "doc3")
+```
 
 ## Development
 
