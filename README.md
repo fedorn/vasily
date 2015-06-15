@@ -22,7 +22,7 @@ Or install it yourself as:
 ## Usage
 
 To use API, first you need to obtain (free) token from [textocat.com](http://textocat.com).
-Then you can use it to initialize client.
+Then you can use it to initialize client:
 ```ruby
 client = Vasily::Client.new('auth_token')
 client.status # => 200
@@ -58,6 +58,32 @@ puts JSON.pretty_generate(entities)
     "tag": "doc2",
     "entities": [
       ...
+    ]
+  },
+  ...
+]
+```
+To perform search:
+```ruby
+search_result = client.search('ORGANIZATION:форд')
+puts JSON.pretty_generate(search_result)
+[
+  {
+    "status": "SUCCESS",
+    "tag": "doc2",
+    "entities": [
+      {
+        "span": "Генри Форда",
+        "category": "PERSON",
+        "beginOffset": 14,
+        "endOffset": 25
+      },
+      {
+        "span": "компанию «Форд»",
+        "category": "ORGANIZATION",
+        "beginOffset": 28,
+        "endOffset": 43
+      }
     ]
   },
   ...

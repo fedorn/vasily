@@ -45,5 +45,15 @@ module Vasily
         fail(Vasily::Error.from_message_and_code(response.body, response.code))
       end
     end
+
+    def search(search_query)
+      options = { query: @auth.merge({ search_query: search_query }) }
+      response = self.class.get('/entity/search', options)
+      if response.code == 200
+        return response['documents']
+      else
+        fail(Vasily::Error.from_message_and_code(response.body, response.code))
+      end
+    end
   end
 end
