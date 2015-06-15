@@ -35,6 +35,34 @@ doc3 = Vasily::Document.new("Штаб-квартира компании Форд
 batch_id, status = client.queue([doc1, doc2, doc3]) # => ["abcdefgh-1111-2222-3333-abcdefabcdef", "IN_PROGRESS"]
 status = client.request(batch_id) # => "FINISHED"
 ```
+To retrieve entities:
+```ruby
+entities = client.retrieve([batch_id])
+puts JSON.pretty_generate(entities)
+[
+  {
+    "status": "SUCCESS",
+    "tag": "doc1",
+    "entities": [
+      {
+        "span": "Председатель совета директоров ОАО «МДМ Банк» Олег Вьюгин",
+        "category": "PERSON",
+        "beginOffset": 0,
+        "endOffset": 57
+      },
+      ...
+    ]
+  },
+  {
+    "status": "SUCCESS",
+    "tag": "doc2",
+    "entities": [
+      ...
+    ]
+  },
+  ...
+]
+```
 
 ## Development
 

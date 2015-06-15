@@ -35,5 +35,15 @@ module Vasily
         fail(Vasily::Error.from_message_and_code(response.body, response.code))
       end
     end
+
+    def retrieve(batch_ids)
+      batch_ids_query = URI.encode_www_form("batch_id" => batch_ids)
+      response = self.class.get('/entity/retrieve?' + batch_ids_query, { query: @auth })
+      if response.code == 200
+        return response['documents']
+      else
+        fail(Vasily::Error.from_message_and_code(response.body, response.code))
+      end
+    end
   end
 end
