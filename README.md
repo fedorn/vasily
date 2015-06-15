@@ -21,7 +21,12 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+To use API, first you need to obtain (free) token from [textocat.com](http://textocat.com).
+Then you can use it to initialize client.
+```ruby
+client = Vasily::Client.new('auth_token')
+client.status # => 200
+```
 
 ## Development
 
